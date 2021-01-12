@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start" color="light">
+      <ion-menu-button menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ionTitle">Mega Car Sale Mart</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col
+          *ngFor="let data of carData"
+          size-md="4"
+          size-sm="4"
+          size-xs="12"
+        >
+          <ion-card routerLink="car-details/{{data.id}}">
+            <ion-card-header>
+              <img [src]="data.teaser.teaserImage" />
+            </ion-card-header>
+            <ion-card-content>
+              <h2 style="color: black"><b>{{data.teaser.title}}</b></h2>
+              <h3 style="color: red"><b>$ {{data.pricing.price}}</b></h3>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

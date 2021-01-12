@@ -1,0 +1,62 @@
+<ion-app>
+  <ion-split-pane contentId="main">
+    <!--  the side menu  -->
+    <ion-menu contentId="main" side="start" menuId="first">
+      <ion-header>
+        <ion-toolbar color="dark"></ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item>
+              <ion-label>
+                <ion-text>Price</ion-text><br />
+                <ion-range
+                  dualKnobs="true"
+                  [min]="priceMin1"
+                  [max]="priceMax1"
+                  [(ngModel)]="price"
+                  (ionChange)="setPrice(price)"
+                  pin="true"
+                  color="secondary"
+                >
+                  <ion-label slot="start">$ {{ priceMin2 }}</ion-label>
+                  <ion-label slot="end">$ {{ priceMax2 }}</ion-label>
+                </ion-range>
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item>
+              <ion-label>
+                <ion-text>Featured</ion-text><br /><br />
+                <ion-button color="dark" expand="block">
+                  <ion-select
+                    style="text-align: center"
+                    #C
+                    interface="popover"
+                    (ionChange)="onSort(C.value)"
+                    placeholder="Sort"
+                  >
+                    <ion-select-option value="lowest">
+                      Lowest Price
+                    </ion-select-option>
+                    <ion-select-option value="highest"
+                      >Highest Price</ion-select-option
+                    >
+                    <ion-select-option value="clear"
+                      >Clear Price</ion-select-option
+                    >
+                  </ion-select>
+                </ion-button>
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <!-- the main content -->
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

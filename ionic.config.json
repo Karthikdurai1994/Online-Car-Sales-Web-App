@@ -1,0 +1,7 @@
+{
+  "name": "PointersInc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

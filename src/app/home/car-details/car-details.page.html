@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center">Mega Car Sale Mart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-slides
+              [pager]="true"
+              (ionSlideWillChange)="onSlideWillChange()"
+              (ionSlideDidChange)="onSlideDidChange()"
+              style="height: 200px"
+            >
+              <ion-slide *ngFor="let data of carDataImages">
+                <img [src]="data.src" style="width: 600px" />
+              </ion-slide>
+            </ion-slides>
+          </ion-card-header>
+          <ion-card-content style="color: black">
+            <ion-list>
+              <ion-item lines="none">
+                <h1 style="color: #214252">
+                  <b style="color: #f05454">Car Name</b> - {{carName}}
+                </h1></ion-item
+              >
+              <ion-item lines="none">
+                <h1 style="color: #214252">
+                  <b style="color: #f05454">Model</b> - {{carModel}}
+                </h1></ion-item
+              >
+              <ion-item lines="none"
+                ><h1 style="color: #214252">
+                  <b style="color: #f05454">Fuel Type</b> - {{carFuelType}}
+                </h1></ion-item
+              >
+              <ion-item lines="none">
+                <h1 style="color: #214252">
+                  <b style="color: #f05454">Price</b> - ${{carMinPrice}} to
+                  ${{carMaxprice}}
+                </h1></ion-item
+              >
+            </ion-list>
+            <ion-button color="success" expand="block">Book Now</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
